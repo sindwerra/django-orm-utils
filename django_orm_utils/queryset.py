@@ -8,7 +8,6 @@ class AdvancedQuerySet(QuerySet):
         result = collections.defaultdict(list)
         include_main_key = kwargs.get('include_main_key', True)
         # TODO 1. 是否能对具体表的唯一键兼容？
-        # TODO 2. fields中不一定需要出现main_key √
         if main_key == 'id':
             query_key = fields + (main_key,) if main_key not in fields else fields
             for row in self.values(*query_key):
